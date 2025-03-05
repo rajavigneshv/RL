@@ -17,8 +17,9 @@ Q-learning is a **model-free reinforcement learning algorithm** that learns the 
 
 ### **🔹 Bellman Equation (Q-Value Update Rule)**
 
-Q(s, a) = Q(s, a) + \alpha \left( r + \gamma \max_{a{\prime}} Q(s{\prime}, a{\prime}) - Q(s, a) \right)
-
+$$
+Q(s, a) = Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
+$$
 
 Where:
 	•	 Q(s, a)  → Current Q-value (how good is taking action  a  in state  s )
