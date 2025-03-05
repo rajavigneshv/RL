@@ -21,13 +21,12 @@ $$
 Q(s, a) = Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
 $$
 
-Where:
-	•	 Q(s, a)  → Current Q-value (how good is taking action  a  in state  s )
-	•	 \alpha  → Learning rate (controls how much new values influence updates)
-	•	 r  → Immediate reward (reward received after taking action  a  in state  s )
-	•	 \gamma  → Discount factor (determines how much future rewards matter)
-	•	 \max_{a{\prime}} Q(s{\prime}, a{\prime})  → Best possible Q-value from the next state  s{\prime} 
-(assuming the agent chooses the optimal action  a{\prime}  in state  s{\prime} )
+### Explanation:
+- \( Q(s, a) \) → Current Q-value (**how good is action \( a \) in state \( s \)**).
+- \( \alpha \) → Learning rate (**how much new values influence updates**).
+- \( r \) → Immediate reward (**reward received after taking action \( a \) in state \( s \)**).
+- \( \gamma \) → Discount factor (**importance of future rewards**).
+- \( \max Q(s', a') \) → **Best future Q-value from the next state \( s' \)**.
 
 **Key Idea:**  
 - The agent **balances immediate rewards** and **long-term future rewards** to make better decisions over time.  
