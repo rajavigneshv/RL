@@ -1,54 +1,70 @@
-# Q-Learning in FrozenLake ❄️🏆
+# Q-Learning in FrozenLake ❄️🏆  
 
-## 🚀 Overview
-This project implements **Q-Learning** in the **FrozenLake environment** using OpenAI Gym.  
-It demonstrates how an agent can learn to navigate a frozen lake safely using **reinforcement learning**.
+## 🚀 Overview  
+This project implements **Q-Learning** in the **FrozenLake environment** using [OpenAI Gym](https://gym.openai.com/).  
+It demonstrates how an agent can learn to navigate a slippery frozen lake and reach the goal without falling into holes, using **reinforcement learning** techniques.  
 
-**Features:**
-- ✅ **Q-learning implementation (`q_learning_frozenlake.py`)**  
-- ✅ **Dynamic image navigation (`image_navigator.py`)** to view diagrams interactively.  
-- ✅ **Flowchart & FrozenLake grid images** for clear explanations.  
-- ✅ **Animated Q-value evolution (`Q_Learning_FrozenLake_Animation.gif`)** showing how learning improves over time.  
-
----
-
-## 📌 **Q-Learning Algorithm**
-Q-learning is a **model-free reinforcement learning algorithm** that learns the optimal action-selection policy.
-
-### **🔹 Bellman Equation (Q-Value Update Rule)**
-
-$$
-Q(s, a) = Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
-$$
-
-**Explanation:**
-- $ Q(s, a) $ → Current Q-value (**how good is action $ a $ in state $ s $**).
-- $ \alpha $ → Learning rate (**how much new values influence updates**).
-- $ r $ → Immediate reward (**reward received after taking action $ a $ in state $ s $**).
-- $ \gamma $ → Discount factor (**importance of future rewards**).
-- $ \max Q(s', a') $ → **Best future Q-value from the next state $ s' $**.
-
-**Key Idea:**  
-- The agent **balances immediate rewards** and **long-term future rewards** to make better decisions over time.  
-- As it plays more episodes, **Q-values converge to the optimal policy**.
+**Highlights:**  
+- ✅ **Q-learning implementation (`q_learning_frozenlake.py`)** with full training loop  
+- ✅ **Dynamic image navigation (`image_navigator.py`)** for interactive diagram viewing  
+- ✅ **Flowchart & FrozenLake grid images** for visual explanations  
+- ✅ **Animated Q-value evolution (`Q_Learning_FrozenLake_Animation.gif`)** to see learning progress  
+- ✅ **Hyperparameter tuning options** (learning rate, discount factor, exploration rate)  
+- ✅ **Performance metrics visualization** with rewards and convergence plots  
 
 ---
 
-## 📂 **Files Included**
+## 📌 Q-Learning Algorithm  
+
+Q-learning is a **model-free reinforcement learning algorithm** that learns the optimal action-selection policy using the **Bellman Optimality Equation**.  
+
+### 🔹 Update Rule (Bellman Equation)  
+
+\[
+Q(s, a) = Q(s, a) + \alpha \Big( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \Big)
+\]
+
+**Parameters:**  
+- $Q(s, a)$ → Current Q-value (**expected utility of taking action $a$ in state $s$**)  
+- $\alpha$ → Learning rate (**weight of new vs. old knowledge**)  
+- $r$ → Immediate reward from environment  
+- $\gamma$ → Discount factor (**importance of future rewards**)  
+- $\max_{a'} Q(s', a')$ → Best estimated value of the next state  
+
+**Key Concept:**  
+- The agent **balances exploration vs. exploitation** using an $\epsilon$-greedy policy.  
+- Over time, Q-values converge, enabling the agent to find the **optimal path** across the FrozenLake.  
+
+---
+
+## 📂 Project Structure  
+
 | File | Description |
-|------|------------|
-| `q_learning_frozenlake.py` | Q-Learning implementation in OpenAI Gym |
-| `image_navigator.py` | Tkinter-based image viewer for diagrams |
-| `FrozenLake_Grid.png` | 4x4 FrozenLake grid representation |
-| `FrozenLake_Flowchart.png` | Q-learning algorithm flowchart |
-| `Q_Learning_FrozenLake_Animation.gif` | Animation showing Q-value updates |
-| `README.md` | Project Documentation |
+|------|-------------|
+| `q_learning_frozenlake.py` | Core Q-Learning implementation with training loop |
+| `image_navigator.py` | Tkinter-based interactive image viewer |
+| `FrozenLake_Grid.png` | 4x4 FrozenLake board layout |
+| `FrozenLake_Flowchart.png` | Step-by-step flowchart of the Q-Learning algorithm |
+| `Q_Learning_FrozenLake_Animation.gif` | Animated GIF showing Q-table updates |
+| `README.md` | Project documentation |
 
 ---
 
-## 📌 **How to Run the Project**
-### **1️⃣ Install Dependencies**
-Run the following command to install required libraries:
+## ⚙️ Installation & Setup  
 
-```sh
-pip install gym numpy matplotlib tkinter
+### 1️⃣ Install Dependencies  
+Run the following command to install required libraries:  
+
+```bash
+pip install gym numpy matplotlib
+
+### 2️⃣ Clone the Repository
+git clone https://github.com/rajavigneshv/RL.git
+cd RL/FrozenLake
+
+### 3️⃣ Run Q-Learning Training
+python q_learning_frozenlake.py
+
+### 4️⃣ Run the Image Navigator
+python image_navigator.py
+
